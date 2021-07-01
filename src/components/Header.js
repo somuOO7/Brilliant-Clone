@@ -1,16 +1,20 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+
 import './Header.css';
 
 function Header() {
 	return (
 		<div className='header'>
 			<div className='header__left'>
-				<img
-					className='header__logo'
-					src='https://lever-client-logos.s3-us-west-2.amazonaws.com/b3943d3b-d47e-4ac8-873d-0b6502f03bf2-1587418824789.png'
-					alt=''
-				/>
+				<Link to='/'>
+					<img
+						className='header__logo'
+						src='https://lever-client-logos.s3-us-west-2.amazonaws.com/b3943d3b-d47e-4ac8-873d-0b6502f03bf2-1587418824789.png'
+						alt=''
+					/>
+				</Link>
 				<p>TODAY</p>
 				<p style={{ fontWeight: 'bold' }}>COURSES</p>
 			</div>
