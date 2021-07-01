@@ -1,0 +1,68 @@
+.home__body {
+	padding: 0.5rem 0rem;
+}
+
+.home__top {
+	display: flex;
+	background-color: #f8f8f8;
+}
+
+.home__top > * {
+	margin: 1rem;
+}
+
+.home__topIntro > * {
+	margin: 1rem 0;
+}
+
+.home__topIntro > h1 {
+	font-size: 4rem;
+	font-weight: 500;
+}
+
+.home__topIntro > h2 {
+	font-weight: 400;
+}
+
+.home__topIntro > p {
+	color: #7c7ca0;
+}
+
+.home__topCard {
+	display: none;
+	width: 70rem;
+	height: fit-content;
+	text-align: center;
+	border: 2px solid #ddd;
+	padding: 1rem;
+	background-color: #fff;
+}
+
+.home__topCard > .MuiSvgIcon-root {
+	transform: scaleX(-1);
+	font-size: 12rem;
+}
+
+.home__topCard > .card__text {
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 1rem;
+}
+
+.home__topCard > .card__button > button {
+	width: 100%;
+}
+
+/* sm stylinh */
+@media (min-width: 640px) {
+	.home__topCard {
+		display: inline-block;
+	}
+}
+
+/* lg styling */
+@media (min-width: 1024px) {
+	.home__body {
+		padding: 0.5rem 9rem;
+	}
+}
