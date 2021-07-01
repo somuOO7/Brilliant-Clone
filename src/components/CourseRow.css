@@ -1,0 +1,23 @@
+.courseRow__text {
+	display: flex;
+	padding: 1rem;
+	align-items: center;
+}
+
+.courseRow__text > .num {
+	color: #758bff;
+	background-color: #e3e8ff;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	display: grid;
+	align-content: center;
+	text-align: center;
+	margin-right: 1rem;
+}
+
+.courseRow__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
