@@ -13,6 +13,20 @@ function Puzzle() {
 		document.getElementById('p0').style.backgroundColor = '#FFC500';
 	}, []);
 
+	const handleDragOver = (e) => {
+		e.preventDefault();
+	};
+
+	const handleDrop = (e) => {
+		e.preventDefault();
+		var data = e.dataTransfer.getData('image');
+		e.target.appendChild(document.getElementById(data));
+	};
+
+	const handleDrag = (e) => {
+		e.dataTransfer.setData('image', e.target.id);
+	};
+
 	return (
 		<div className='puzzle'>
 			<div className='puzzle__questionBox'>
@@ -33,7 +47,11 @@ function Puzzle() {
 							<strong>Drag the characters into the boxes.</strong>
 							<div className='puzzle__dragBox'>
 								{PUZZLE[0].draggables.map((_, index) => (
-									<div id={`div${index}`} />
+									<div
+										id={`div${index}`}
+										onDragOver={handleDragOver}
+										onDrop={handleDrop}
+									/>
 								))}
 							</div>
 
@@ -45,6 +63,7 @@ function Puzzle() {
 											src={item}
 											alt=''
 											draggable={true}
+											onDragStart={handleDrag}
 										/>
 									</div>
 								))}

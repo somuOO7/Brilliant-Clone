@@ -13,14 +13,22 @@
 
 .puzzle__dragBox {
 	display: flex;
+	align-items: center;
 }
 
 .puzzle__dragBox > div {
 	flex: 1;
-	height: 200px;
+	height: fit-content;
+	min-height: 10rem;
 	margin: 0.5rem;
 	border: 3px dashed #c4c4c4;
 	border-radius: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.puzzle__dragBox > div > img {
+	width: 100%;
 }
 
 .puzzle__draggable {
