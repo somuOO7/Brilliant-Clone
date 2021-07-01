@@ -9,6 +9,7 @@ const COURSES = [
 				image: 'https://ds055uzetaobb.cloudfront.net/brioche/chapter/Warmup_Puzzles-T6zgwD-6TgfYy.png',
 				title: 'Warmup Puzzles',
 				description: 'Get started with some logic warmups.',
+				link: '/puzzle',
 			},
 			{
 				id: 2,

@@ -1,0 +1,71 @@
+.puzzle {
+	display: flex;
+	padding: 2rem 1rem;
+}
+
+.puzzle__questionBox {
+	flex: 0.65;
+}
+
+.puzzle__questionBox > .question > * {
+	margin: 1.5rem 0;
+}
+
+.puzzle__dragBox {
+	display: flex;
+}
+
+.puzzle__dragBox > div {
+	flex: 1;
+	height: 200px;
+	margin: 0.5rem;
+	border: 3px dashed #c4c4c4;
+	border-radius: 20px;
+}
+
+.puzzle__draggable {
+	display: flex;
+}
+
+.puzzle__draggable > div {
+	flex: 1;
+}
+
+.puzzle__draggable > div > img {
+	width: 100%;
+}
+
+.puzzle__action {
+	flex: 0.35;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.puzzle__action > * {
+	margin: 0.5rem 0;
+}
+
+.puzzle__action > div {
+	display: flex;
+	align-items: center;
+}
+
+.puzzle__pagination {
+	display: flex;
+	width: 100%;
+}
+
+.puzzle__pagination > * {
+	height: 1rem;
+	background-color: #f0f0f0;
+	flex: 1;
+	margin: 0 2px;
+}
+
+/* lg styling */
+@media (min-width: 1024px) {
+	.puzzle {
+		padding: 2rem 9rem;
+	}
+}

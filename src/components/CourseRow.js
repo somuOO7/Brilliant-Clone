@@ -22,6 +22,7 @@ function CourseRow({ id, title, description, courses }) {
 						image={course.image}
 						title={course.title}
 						description={course.description}
+						link={course.link}
 					/>
 				))}
 			</div>

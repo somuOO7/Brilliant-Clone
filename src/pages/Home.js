@@ -1,13 +1,16 @@
+import React, { useEffect } from 'react';
 import { Search } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
-import React from 'react';
-import Header from '../components/Header';
 import CourseRow from '../components/CourseRow';
 import COURSES from '../data/courses';
 
 import './Home.css';
 
 function Home() {
+	useEffect(() => {
+		document.title = 'Practice Logic | Brilliant';
+	}, []);
+
 	return (
 		<div className='home'>
 			<div className='home__body'>
