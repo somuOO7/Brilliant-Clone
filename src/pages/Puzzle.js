@@ -7,6 +7,8 @@ import './Puzzle.css';
 
 function Puzzle() {
 	const [quesIndex, setQuesIndex] = useState(0);
+	const [answer, setAnswer] = useState([]);
+	const [ansCorrect, setAnsCorrect] = useState(false);
 
 	useEffect(() => {
 		document.title = 'Warmup Puzzles Practice Problems Online | Brilliant';
@@ -25,10 +27,43 @@ function Puzzle() {
 		e.preventDefault();
 		var data = e.dataTransfer.getData('image');
 		e.target.appendChild(document.getElementById(data));
+
+		if (PUZZLE[quesIndex].draggables) {
+			let arr = PUZZLE[quesIndex].draggables.map(
+				(_, index) =>
+					document.getElementById(`div${index}`).firstChild?.id
+			);
+
+			setAnswer(arr);
+
+			if (arr.includes(undefined)) {
+				document.querySelector('#check-answer').disabled = true;
+			} else {
+				document.querySelector('#check-answer').disabled = false;
+			}
+		}
 	};
 
 	const handleDrag = (e) => {
 		e.dataTransfer.setData('image', e.target.id);
+	};
+
+	document
+		.querySelector('#check-answer')
+		?.addEventListener('click', () => handleAnswer());
+
+	const handleAnswer = () => {
+		if (
+			JSON.stringify(answer) === JSON.stringify(PUZZLE[quesIndex].answers)
+		) {
+			setAnsCorrect(true);
+			document.querySelector('.puzzle__answerBtn').innerHTML =
+				'<h4>Correct Answer! 🎉</h4>';
+		} else {
+			setAnsCorrect(false);
+			document.querySelector('.puzzle__answerBtn').innerHTML =
+				'<h4>Wrong Answer! 😔</h4>';
+		}
 	};
 
 	return (
@@ -105,9 +140,9 @@ function Puzzle() {
 					<Button size='small' variant='outlined'>
 						Show explanation
 					</Button>
-					<Button disabled size='small' variant='contained'>
+					<button disabled id='check-answer'>
 						Check answer
-					</Button>
+					</button>
 				</div>
 			</div>
 		</div>
