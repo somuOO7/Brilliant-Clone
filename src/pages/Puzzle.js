@@ -8,7 +8,6 @@ import './Puzzle.css';
 function Puzzle() {
 	const [quesIndex, setQuesIndex] = useState(0);
 	const [answer, setAnswer] = useState([]);
-	const [ansCorrect, setAnsCorrect] = useState(false);
 
 	useEffect(() => {
 		document.title = 'Warmup Puzzles Practice Problems Online | Brilliant';
@@ -56,26 +55,31 @@ function Puzzle() {
 		if (
 			JSON.stringify(answer) === JSON.stringify(PUZZLE[quesIndex].answers)
 		) {
-			setAnsCorrect(true);
 			document.querySelector('.puzzle__answerBtn').innerHTML =
 				'<h4>Correct Answer! 🎉</h4>';
 		} else {
-			setAnsCorrect(false);
 			document.querySelector('.puzzle__answerBtn').innerHTML =
 				'<h4>Wrong Answer! 😔</h4>';
 		}
+
+		setTimeout(() => {
+			setQuesIndex(quesIndex + 1);
+
+			document.querySelector('.puzzle__answerBtn').innerHTML =
+				"<Button size='small'variant='outlined'>Show explanation </Button><button disabled id='check-answer'>Check answer</button>";
+		}, 2000);
 	};
 
 	return (
 		<div className='puzzle'>
 			<div className='puzzle__questionBox'>
 				<div className='question'>
-					{PUZZLE[quesIndex].image && (
+					{PUZZLE[quesIndex]?.image && (
 						<img src={PUZZLE[quesIndex].image} alt='' />
 					)}
 
-					<p>{PUZZLE[quesIndex].question}</p>
-					{PUZZLE[quesIndex].list && (
+					<p>{PUZZLE[quesIndex]?.question}</p>
+					{PUZZLE[quesIndex]?.list && (
 						<ul>
 							{PUZZLE[quesIndex].list.map((item) => (
 								<li>{item}</li>
@@ -83,7 +87,7 @@ function Puzzle() {
 						</ul>
 					)}
 
-					{PUZZLE[quesIndex].draggables && (
+					{PUZZLE[quesIndex]?.draggables && (
 						<div>
 							<strong>Drag the characters into the boxes.</strong>
 							<div className='puzzle__dragBox'>
