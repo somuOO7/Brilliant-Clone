@@ -4,7 +4,7 @@ An application is a clone of [Brilliant](https://brilliant.org/courses/logic-ded
 
 ## Project Status
 
-This project is currently in developement. User can only access warmup puzzle. Functionality of puzzle is also under developement.
+This project is currently in developement. User can only access warmup puzzle. Only first puzzle is completed. Other levels are still under developement.
 
 ## Project Screen Shots
 
