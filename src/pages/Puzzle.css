@@ -71,6 +71,10 @@
 	margin: 0 2px;
 }
 
+.puzzle__answerBtn > button {
+	margin: 0.5rem;
+}
+
 /* lg styling */
 @media (min-width: 1024px) {
 	.puzzle {

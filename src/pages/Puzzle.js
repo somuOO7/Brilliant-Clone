@@ -1,17 +1,21 @@
 import { ArrowDropDownTwoTone } from '@material-ui/icons';
-import React, { useEffect } from 'react';
+import { Button } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import PUZZLE from '../data/puzzle';
 
 import './Puzzle.css';
 
 function Puzzle() {
+	const [quesIndex, setQuesIndex] = useState(0);
+
 	useEffect(() => {
 		document.title = 'Warmup Puzzles Practice Problems Online | Brilliant';
 	}, []);
 
 	useEffect(() => {
-		document.getElementById('p0').style.backgroundColor = '#FFC500';
-	}, []);
+		document.getElementById(`p${quesIndex}`).style.backgroundColor =
+			'#FFC500';
+	}, [quesIndex]);
 
 	const handleDragOver = (e) => {
 		e.preventDefault();
@@ -31,42 +35,49 @@ function Puzzle() {
 		<div className='puzzle'>
 			<div className='puzzle__questionBox'>
 				<div className='question'>
-					{PUZZLE[0].image && <img src={PUZZLE[0].image} alt='' />}
+					{PUZZLE[quesIndex].image && (
+						<img src={PUZZLE[quesIndex].image} alt='' />
+					)}
 
-					<p>{PUZZLE[0].question}</p>
-					{PUZZLE[0].list && (
+					<p>{PUZZLE[quesIndex].question}</p>
+					{PUZZLE[quesIndex].list && (
 						<ul>
-							{PUZZLE[0].list.map((item) => (
+							{PUZZLE[quesIndex].list.map((item) => (
 								<li>{item}</li>
 							))}
 						</ul>
 					)}
 
-					{PUZZLE[0].draggables && (
+					{PUZZLE[quesIndex].draggables && (
 						<div>
 							<strong>Drag the characters into the boxes.</strong>
 							<div className='puzzle__dragBox'>
-								{PUZZLE[0].draggables.map((_, index) => (
-									<div
-										id={`div${index}`}
-										onDragOver={handleDragOver}
-										onDrop={handleDrop}
-									/>
-								))}
+								{PUZZLE[quesIndex].draggables.map(
+									(_, index) => (
+										<div
+											id={`div${index}`}
+											onDragOver={handleDragOver}
+											onDrop={handleDrop}
+										/>
+									)
+								)}
 							</div>
 
 							<div className='puzzle__draggable'>
-								{PUZZLE[0].draggables.map((item, index) => (
-									<div>
-										<img
-											id={`drag${index}`}
-											src={item}
-											alt=''
-											draggable={true}
-											onDragStart={handleDrag}
-										/>
-									</div>
-								))}
+								{PUZZLE[quesIndex].draggables.map(
+									(item, index) => (
+										<div>
+											<img
+												id={`drag${index}`}
+												src={item.image}
+												alt=''
+												draggable={true}
+												onDragStart={handleDrag}
+											/>
+											<p>{item.name}</p>
+										</div>
+									)
+								)}
 							</div>
 						</div>
 					)}
@@ -88,6 +99,15 @@ function Puzzle() {
 					<div id='p3'></div>
 					<div id='p4'></div>
 					<div id='p5'></div>
+				</div>
+
+				<div className='puzzle__answerBtn'>
+					<Button size='small' variant='outlined'>
+						Show explanation
+					</Button>
+					<Button disabled size='small' variant='contained'>
+						Check answer
+					</Button>
 				</div>
 			</div>
 		</div>

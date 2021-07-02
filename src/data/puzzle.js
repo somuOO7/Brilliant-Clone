@@ -7,12 +7,23 @@ const PUZZLE = [
 			'Joseph is not the youngest.',
 			'Kevin is the oldest.',
 			'Nicholas is not the oldest.',
+			'Place the youngest on the first box and Oldest on the last box.',
 		],
 		draggables: [
-			'https://ds055uzetaobb.cloudfront.net/uploads/eREixHfFwc-p1.png',
-			'https://ds055uzetaobb.cloudfront.net/uploads/zIwV9OLFiO-p2.png',
-			'https://ds055uzetaobb.cloudfront.net/uploads/A8r8kNZ762-p3.png',
+			{
+				name: 'Joseph',
+				image: 'https://ds055uzetaobb.cloudfront.net/uploads/eREixHfFwc-p1.png',
+			},
+			{
+				name: 'Kevin',
+				image: 'https://ds055uzetaobb.cloudfront.net/uploads/zIwV9OLFiO-p2.png',
+			},
+			{
+				name: 'Nicholas',
+				image: 'https://ds055uzetaobb.cloudfront.net/uploads/A8r8kNZ762-p3.png',
+			},
 		],
+		answers: [],
 	},
 ];
 
